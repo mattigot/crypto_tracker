@@ -58,12 +58,12 @@ def add_defaualt_values_for_new_fileds(coins_info):
                 value[CFG_STR_BUY_MINIMAL_PERC_DROP] = 100
                 value[CFG_STR_BUY_OPTIMAL_PERC_DROP] = 100
                 value[CFG_STR_BUY_60X_PERC_DROP] = 100
-                value[CFG_STR_BUY_GENERATIONAL_PERC_DROP] = 100
+                #value[CFG_STR_BUY_GENERATIONAL_PERC_DROP] = 100
 
 def _should_buy(coins_info, buy_catagory, buy_catagory_percent_drop, buy_weight):
     for key, value in coins_info.items():
             if (value[buy_catagory] != 0):
-                value[buy_catagory_percent_drop] = ((value[CFG_STR_CMC_PRICE] - value[buy_catagory]) / value[CFG_STR_CMC_PRICE]) * 100
+                value[buy_catagory_percent_drop] = round(((value[CFG_STR_CMC_PRICE] - value[buy_catagory]) / value[CFG_STR_CMC_PRICE]) * 100, 2)
 
             if value[CFG_STR_CMC_PRICE] < value[buy_catagory]:
                 value[CFG_STR_BUY] = buy_weight
@@ -73,7 +73,7 @@ def calculate_buy_in_info(coins_info):
     _should_buy(coins_info, CFG_STR_BUY_MINIMAL, CFG_STR_BUY_MINIMAL_PERC_DROP, 1)
     _should_buy(coins_info, CFG_STR_BUY_OPTIMAL, CFG_STR_BUY_OPTIMAL_PERC_DROP, 2)
     _should_buy(coins_info, CFG_STR_BUY_60X, CFG_STR_BUY_60X_PERC_DROP, 3)
-    _should_buy(coins_info, CFG_STR_BUY_GENERATIONAL, CFG_STR_BUY_GENERATIONAL_PERC_DROP, 4)
+    #_should_buy(coins_info, CFG_STR_BUY_GENERATIONAL, CFG_STR_BUY_GENERATIONAL_PERC_DROP, 4)
 
 
 def update_watch_list_info(input_file, output_file):

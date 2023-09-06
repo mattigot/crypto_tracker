@@ -13,5 +13,6 @@ def run_script():
 def display_data_refresh_button():
     if st.sidebar.button("Refresh Coin Data"):
         run_script()
+    #st.sidebar.divider() 
 
 
