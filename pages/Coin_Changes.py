@@ -13,13 +13,13 @@ def create_charts(titles, gainers, losers):
     fig = make_subplots(rows=2, cols=2, subplot_titles=titles)
 
     for i, (col_name, gainers_df) in enumerate(gainers.items()):
-        bar_gainers = px.bar(gainers_df, x="name", y=col_name, title=f"top 5 gainers - {col_name}", color_discrete_map={"name": "green"})
+        bar_gainers = px.bar(gainers_df, x="name", y=col_name, title=f"top 5 gainers - {col_name}", color_discrete_map={"name": "green"}, text=col_name)
         #bar_trace = go.Bar(x=data["name"], y=data["value"], text=data["value"], textposition="auto", marker_color="green")
         fig.add_trace(bar_gainers.data[0], row=1, col=i+1)
         #fig.add_trace(bar_trace, row=1, col=1)
 
         losers_df = losers[col_name]
-        bar_losers = px.bar(losers_df, x="name", y=col_name, title=f"top 5 losers - {col_name}", color_discrete_map={"name": "green"})
+        bar_losers = px.bar(losers_df, x="name", y=col_name, title=f"top 5 losers - {col_name}", color_discrete_map={"name": "green"}, text=col_name)
         fig.add_trace(bar_losers.data[0], row=2, col=i+1)
 
     fig.update_layout(height=600,  showlegend=False)
