@@ -3,6 +3,7 @@ import json
 import pprint
 import csv
 from config import *
+from common.price_conversion import *
 
 def read_csv(file_name='data.csv'):
     """
@@ -76,12 +77,12 @@ def parseCmkInfo(coins_info, data):
             CFG_STR_CMC_NAME: cmk_coin[CFG_STR_CMC_NAME],
             #'tags': cmk_coin['tags'],
             CFG_STR_CMC_PRICE: cmk_coin['quote']['USD'][CFG_STR_CMC_PRICE],
-            CFG_STR_CMC_CHANGE_1H: cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_1H],
-            CFG_STR_CMC_CHANGE_24H: cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_24H],
-            CFG_STR_CMC_CHANGE_7D: cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_7D],
-            CFG_STR_CMC_CHANGE_30D: cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_30D],
-            CFG_STR_CMC_CHANGE_60D: cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_60D],
-            CFG_STR_CMC_CHANGE_90D: cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_90D],
+            CFG_STR_CMC_CHANGE_1H: format_float(cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_1H]),
+            CFG_STR_CMC_CHANGE_24H: format_float(cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_24H]),
+            CFG_STR_CMC_CHANGE_7D: format_float(cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_7D]),
+            CFG_STR_CMC_CHANGE_30D: format_float(cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_30D]),
+            CFG_STR_CMC_CHANGE_60D: format_float(cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_60D]),
+            CFG_STR_CMC_CHANGE_90D: format_float(cmk_coin['quote']['USD'][CFG_STR_CMC_CHANGE_90D]),
         }
         coins_info[cmk_coin[CFG_STR_CMC_SYMBOL]] =  coin
 

@@ -9,7 +9,7 @@ def dispaly_filter_by_interest(df, title):
     elif  coins_movers_filters == CFG_STR_BUY:
         return df[df[CFG_STR_BUY] != 0]
     elif  coins_movers_filters == CFG_STR_INVESTMENT_PERCENT:
-        return df[df[CFG_STR_INVESTMENT_PERCENT] != ""]
+        return df[~df[CFG_STR_INVESTMENT_PERCENT].isnull()]
     
     return df
      

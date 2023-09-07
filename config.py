@@ -36,6 +36,7 @@ CFG_STR_BUY_60X_PERC_DROP = 'Drop needed to 60x'
 CFG_STR_TICKER = 'Ticker'
 CFG_STR_FOCUS_LIST = 'Focus List'
 CFG_STR_INVESTMENT_PERCENT = 'Investement %'
+CFG_STR_STRATERGAY_TIER = 'Strategy Tier'
 
 # Column strings (CMC)
 CFG_STR_CMC_PRICE = 'price'
