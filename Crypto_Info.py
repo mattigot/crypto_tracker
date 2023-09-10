@@ -8,8 +8,24 @@ from config import *
 from common.price_metric import *
 from common.refresh_button import *
 
+columns_to_display = [
+        CFG_STR_CMC_SYMBOL,
+        CFG_STR_CMC_NAME,
+        CFG_STR_BUY,
+        CFG_STR_STRATERGAY_TIER,
+        CFG_STR_BUY_MINIMAL_PERC_DROP,
+        CFG_STR_BUY_OPTIMAL_PERC_DROP,
+        #CFG_STR_BUY_GENERATIONAL_PERC_DROP,
+        CFG_STR_BUY_60X_PERC_DROP,
+        CFG_STR_BUY_MINIMAL,
+        CFG_STR_BUY_OPTIMAL,
+        #CFG_STR_BUY_GENERATIONAL,
+        CFG_STR_BUY_60X,
+        CFG_STR_CMC_PRICE]
+
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Crypto Dashboard", page_icon=":bar_chart:", layout="wide")
+
 
 # ---- READ EXCEL ----
 #@st.cache

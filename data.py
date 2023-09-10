@@ -134,6 +134,7 @@ def update_protfolio_info(input_file, output_file):
     #add_defaualt_values_for_new_fileds(coins_info)
     #calculate_buy_in_info(coins_info)
     # Create a new csv file will all the new data
+    pprint.pprint(coins_info)
     createUpdatedCsvFile(output_file, coins_info)
 
 
