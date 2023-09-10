@@ -1,4 +1,4 @@
-Protfolio,Name,Exchange,Ticker,Buy Date,Buy Percent,Buy Value,Units,Buy Price
+Portfolio,Name,Exchange,Ticker,Buy Date,Buy Percent,Buy Value,Units,Buy Price
 TOM,Cosmos,Binanace,ATOM,28.03.23,0.05,700,61.74,11.336
 TOM,Lukso,Gate.io,LYXE,28.03.23,0.05,700,80.35196,8.7116
 TOM,Polygon,Binanace,MATIC,28.03.23,0.05,700,623.2,1.059
@@ -21,3 +21,7 @@ TOM,Flux,Binanace,FLUX,17.04.23,0.05,700,1014.49,0.69
 TOM,Polkadot,Binanace,DOT,17.04.23,0.05,700,104.27,6.713
 TOM,Basic Attention Token,Binanace,BAT,17.04.23,0.05,700,2524,0.2773
 TOM,Near Protocol,Binanace,NEAR,17.03.23,0.025,350,178.664,196
+SUPPO,Polkadot,Binanace,DOT,17.04.23,0.05,700,104.27,6.713
+SUPPO,Basic Attention Token,Binanace,BAT,17.04.23,0.05,700,2524,0.2773
+SUPPO,Near Protocol,Binanace,NEAR,17.03.23,0.025,100,200,20000
+SUPPO,Near Protocol,Binanace,NEAR,17.03.23,0.025,100,400,40000
