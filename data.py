@@ -12,7 +12,7 @@ def convert_to_float(s):
     try:
         ret_val = float(s)
         return ret_val
-    except ValueError:
+    except:
         return ret_val
 
 def addUserData(coins_info, user_coins, user_headers):
@@ -28,6 +28,26 @@ def addUserData(coins_info, user_coins, user_headers):
             coins_info[symbol][head] = user_coin[head]
 
             coins_info[symbol][head] = convert_to_float(user_coin[head])
+def addUserData2(coins_info, user_coins):
+    
+    cmkp_headers = coins_info[list(coins_info.keys())[0]].keys()
+
+    for user_coin in user_coins:
+        symbol = user_coin['Ticker']
+        print("|%s|" % {symbol})
+        #print("|", symbol, "|start", coins_info[symbol])
+
+        #pprint.pprint(coins_info.keys())
+        if symbol not in coins_info.keys():
+            print("Missing %s" % symbol)
+            continue
+
+        #print(user_coin)
+        for head in cmkp_headers:
+            #print(cmkp_headers)
+            #coins_info[symbol][head] = user_coin[head]
+
+            user_coin[head] = convert_to_float(coins_info[symbol][head])
 
 def createELkBulkFile(coins_info):
     with open('output.json', 'w') as file:
@@ -51,6 +71,29 @@ def createUpdatedCsvFile(csv_file_path, data):
             csv_writer.writerow(inner_dict)
 
     print(f"CSV file '{csv_file_path}' with inner dictionaries has been created.")
+
+def createUpdatedCsvFile2(csv_file_path, data):
+    # Extract the keys from the first inner dictionary to be used as header
+    inner_fields = data[0].keys()
+    print(inner_fields)
+    #print("----------------------------------------------------------")
+    #pprint.pprint(data)
+    #print("============================")
+
+    # Write the inner data to the CSV file
+    with open(csv_file_path, 'w', newline='') as csv_file:
+        csv_writer = csv.DictWriter(csv_file, fieldnames=inner_fields)
+
+        # Write the header
+        csv_writer.writeheader()
+
+        # Write the inner data
+        for coin in data:
+            print(">>>>>>>>>>>>>", coin)
+            csv_writer.writerow(coin)
+
+    print(f"CSV file '{csv_file_path}' with inner dictionaries has been created.")
+
 
 def add_defaualt_values_for_new_fileds(coins_info):
     for key, value in coins_info.items():
@@ -127,16 +170,13 @@ def update_protfolio_info(input_file, output_file):
     # Extract relevant information and populate the coins_info dictionary
     parseCmkInfo(coins_info, data)
 
-    addUserData(coins_info, user_data, user_headers)
+    addUserData2(coins_info, user_data)
     # Print the final coins_info dictionary
-    #pprint.pprint(coins_info)
+    pprint.pprint(len(user_data))
+    pprint.pprint(user_data)
 
-    #add_defaualt_values_for_new_fileds(coins_info)
-    #calculate_buy_in_info(coins_info)
     # Create a new csv file will all the new data
-    pprint.pprint(coins_info)
-    createUpdatedCsvFile(output_file, coins_info)
-
+    createUpdatedCsvFile2(output_file, user_data)
 
 # Create an argument parser
 parser = argparse.ArgumentParser()

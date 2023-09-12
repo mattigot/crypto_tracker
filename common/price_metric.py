@@ -24,3 +24,23 @@ def display_coin_container(df):
 
 
 
+def display_coin_container2(df):
+    selected_columns = ['diff_%', 'value']
+    st.write(df)
+
+    coin_info = df[selected_columns].to_dict(orient='records')
+    portfolio_names = df.index.tolist()
+
+# Create a horizontal layout container
+    with st.container():
+        cols = st.columns(len(coin_info), gap = "small")
+
+        i = 0
+        for  col in cols:
+            formated_value = format(round(coin_info[i]['value']), ",")
+            formated_delta = f"{coin_info[i]['diff_%'] / 100:.2%}"
+
+            col.metric(label=portfolio_names[i], value=formated_value, delta=formated_delta)
+            i +=1 
+
+    st.divider() 
