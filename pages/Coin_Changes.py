@@ -14,9 +14,7 @@ def create_charts(titles, gainers, losers):
 
     for i, (col_name, gainers_df) in enumerate(gainers.items()):
         bar_gainers = px.bar(gainers_df, x="name", y=col_name, title=f"top 5 gainers - {col_name}", color_discrete_map={"name": "green"}, text=col_name)
-        #bar_trace = go.Bar(x=data["name"], y=data["value"], text=data["value"], textposition="auto", marker_color="green")
         fig.add_trace(bar_gainers.data[0], row=1, col=i+1)
-        #fig.add_trace(bar_trace, row=1, col=1)
 
         losers_df = losers[col_name]
         bar_losers = px.bar(losers_df, x="name", y=col_name, title=f"top 5 losers - {col_name}", color_discrete_map={"name": "green"}, text=col_name)

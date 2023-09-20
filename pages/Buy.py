@@ -26,13 +26,13 @@ columns_to_display = [
         CFG_STR_BUY_MINIMAL,
         CFG_STR_BUY_OPTIMAL,
         #CFG_STR_BUY_GENERATIONAL,
-        CFG_STR_BUY_60X,
+        #CFG_STR_BUY_60X,
         CFG_STR_CMC_PRICE]
 
 bi_prices_to_display = [
     {'name': CFG_STR_BUY_MINIMAL_PERC_DROP, 'title': 'Minimal BI Drop %'},
     {'name': CFG_STR_BUY_OPTIMAL_PERC_DROP, 'title': 'Optimal BI Drop %'},
-    {'name': CFG_STR_BUY_60X_PERC_DROP, 'title': '60X BI Drop %'},
+    #{'name': CFG_STR_BUY_60X_PERC_DROP, 'title': '60X BI Drop %'},
 ]
 
 st.set_page_config(page_title="CFG_STR_BUY/Sell Dashboard", page_icon=":bar_chart:", layout="wide")

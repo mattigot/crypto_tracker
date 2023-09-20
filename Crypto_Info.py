@@ -65,12 +65,6 @@ risk = st.sidebar.multiselect(
     default=df_w["Risk"].unique()
 )
 
-stratergy = st.sidebar.multiselect(
-    "Select the Strategy:",
-    options=df_w["Strategy Tier"].unique(),
-    default=df_w["Strategy Tier"].unique()
-)
-
 focus = st.sidebar.multiselect(
     "Select the Focus List:",
     options=df_w["Focus List"].unique(),
